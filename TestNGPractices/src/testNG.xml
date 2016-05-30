@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="true" >
+  	<parameter name="sUsername" value="testuser_1"/>
+	<parameter name="sPassword" value="Test@123"/>
+  <test name="Test">
+    <classes>
+      <class name="testNG.ParameteriesAnnotation"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
