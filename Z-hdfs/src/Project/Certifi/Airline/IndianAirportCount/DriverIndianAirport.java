@@ -35,10 +35,10 @@ public class DriverIndianAirport extends Configured implements Tool{
 		FileOutputFormat.setOutputPath(conf,new Path( arg0[1]));
 		
 //File input and output type 
-		conf.setMapOutputKeyClass(IntWritable.class);
-		conf.setMapOutputValueClass(Text.class);
-		conf.setOutputKeyClass(IntWritable.class);
-		conf.setOutputValueClass(Text.class);
+		conf.setMapOutputKeyClass(Text.class);
+		conf.setMapOutputValueClass(IntWritable.class);
+		conf.setOutputKeyClass(Text.class);
+		conf.setOutputValueClass(IntWritable.class);
 		
 //set mapper and reducer
 		conf.setMapperClass(IndianAirportMapper.class);

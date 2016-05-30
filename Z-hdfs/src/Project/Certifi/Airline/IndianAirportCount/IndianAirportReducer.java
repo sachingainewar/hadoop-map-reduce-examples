@@ -10,24 +10,27 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
-public class IndianAirportReducer extends MapReduceBase implements Reducer<Text, IntWritable,IntWritable ,Text >{
+public class IndianAirportReducer extends MapReduceBase implements Reducer<Text, IntWritable,Text ,IntWritable >{
 
 // [Sahara [1,1,1,2,] Mumbai[1,1,2,2].....
 	
 	@Override
 	public void reduce(Text Key, Iterator<IntWritable> values,
-			OutputCollector<IntWritable, Text> Output, Reporter ReportDir)
+			OutputCollector<Text, IntWritable> Output, Reporter ReportDir)
 			throws IOException {
 		// TODO Auto-generated method stub
 		
+		
+		Text AirlineName = new Text();
 		int TotalAirport =0;
 		while (values.hasNext()){
 			int a = (values.next()).get();
-		    if (a<2) {
+		    if (a<5) {
 		    	TotalAirport++;
 		    }
 			
-			Output.collect(new IntWritable(TotalAirport), new Text (Key));
+		    System.out.println(AirlineName);
+			Output.collect(new Text (Key), new IntWritable(TotalAirport));
 		}
 		
 		
